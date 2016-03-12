@@ -1,0 +1,22 @@
+{
+  "name": "redux-color-wall",
+  "version": "0.0.0",
+  "description": "An app that allows users to add and rate colors.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "learning",
+    "react",
+    "flux",
+    "redux",
+    "tutorial",
+    "colors",
+    "social",
+    "media",
+    "rating"
+  ],
+  "author": "Alex Banks <alex@moonhighway.com> (http://www.moonhighway.com)",
+  "license": "MIT"
+}
