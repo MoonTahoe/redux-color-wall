@@ -12,3 +12,5 @@ npm Commands
 ` $ npm test ` -> Runs the tests
 
 ` $ npm coverage ` -> Opens coverage report in a browser
+
+` $ npm run lint ` -> Runs eslint on source javascript files

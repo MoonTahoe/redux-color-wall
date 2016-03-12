@@ -1,6 +1,6 @@
 import React from 'react'
 import { findDOMNode } from 'react-dom'
-import { renderIntoDocument, findRenderedDOMComponentWithTag } from 'react-addons-test-utils'
+import { renderIntoDocument } from 'react-addons-test-utils'
 import { APP } from '../../components'
 import { expect } from 'chai'
 import { wrap } from 'react-stateless-wrapper'

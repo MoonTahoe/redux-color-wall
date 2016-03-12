@@ -4,9 +4,11 @@
   "description": "An app that allows users to add and rate colors.",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
     "prestart": "webpack",
     "start": "open http://localhost:3000 & ./node_modules/.bin/httpster -d ./dist/ -p 3000",
     "test": "./node_modules/.bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- --require ./test/setup.js --recursive",
+    "posttest": "npm run lint",
     "coverage": "open ./coverage/lcov-report/index.html"
   },
   "keywords": [
@@ -30,6 +32,8 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "chai": "^3.5.0",
+    "eslint": "^2.4.0",
+    "eslint-plugin-react": "^4.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
