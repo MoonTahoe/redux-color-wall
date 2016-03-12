@@ -4,7 +4,8 @@
   "description": "An app that allows users to add and rate colors.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "webpack",
+    "start": "open http://localhost:3000 & ./node_modules/.bin/httpster -d ./dist/ -p 3000"
   },
   "keywords": [
     "learning",
@@ -18,5 +19,17 @@
     "rating"
   ],
   "author": "Alex Banks <alex@moonhighway.com> (http://www.moonhighway.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "webpack": "^1.12.12"
+  },
+  "dependencies": {
+    "httpster": "^1.0.3",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
+  }
 }
