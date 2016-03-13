@@ -1,4 +1,4 @@
-module.export = {
+const constants = {
 
     // Actions
 
@@ -14,3 +14,5 @@ module.export = {
     SORTED_BY_RATING: "SORTED_BY_RATING"
 
 };
+
+module.exports = constants;
