@@ -19,6 +19,7 @@ rules:
     - error
     - unix
   no-unused-vars: 0
+  no-console: 0
 globals:
     describe: true
     it: true

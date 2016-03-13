@@ -21,6 +21,5 @@ module.exports = {
             rating: 5,
             timestamp: "Thu Mar 10 2016 01:11:12 GMT-0800 (PST)"
         }
-    ],
-    sortBy: ""
+    ]
 };
