@@ -35,6 +35,7 @@ describe("color Reducer", () => {
         };
         const action = {
             type: C.RATE_COLOR,
+            id: 0,
             rating: 3
         };
         deepFreeze(state);
@@ -48,10 +49,6 @@ describe("color Reducer", () => {
         });
     });
 
-    it("Defaults state for incorrect action", () => {
-        const state = {};
-        const action = { type: "NOT_DEFINED"};
-        expect(color(state, action)).to.deep.equal({});
-    })
+    it("Defaults array for incorrect action", () => expect(color()).to.deep.equal({}));
 
 });
