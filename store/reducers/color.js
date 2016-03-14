@@ -8,7 +8,7 @@ const color = (state = {}, action = {type: null}) => {
                 title: action.title,
                 color: action.color,
                 timestamp: action.timestamp,
-                rating: undefined
+                rating: 0
             };
         case C.RATE_COLOR:
             return (state.id !== action.id) ? state : {

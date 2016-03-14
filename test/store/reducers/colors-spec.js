@@ -37,7 +37,7 @@ describe("colors Reducer", () => {
                 title: 'Bright Whtie',
                 color: '#FFFFFF',
                 timestamp: action.timestamp,
-                rating: undefined
+                rating: 0
             }
         ]);
     });

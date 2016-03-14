@@ -11,7 +11,7 @@ module.exports = {
             id: 1,
             title: "Crazy Green",
             color: "#00FF00",
-            rating: undefined,
+            rating: 0,
             timestamp: "Fri Mar 11 2016 12:00:00 GMT-0800 (PST)"
         },
         {

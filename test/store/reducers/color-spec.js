@@ -21,7 +21,7 @@ describe("color Reducer", () => {
             title: 'Test Teal',
             color: '#90C3D4',
             timestamp: action.timestamp,
-            rating: undefined
+            rating: 0
         });
     });
 
