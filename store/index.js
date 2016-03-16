@@ -1,7 +1,6 @@
+import thunk from 'redux-thunk'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { colors, sort } from './reducers'
-
-let initialState = require('./initialState');
 
 const logger = store => next => action => {
     let result;
@@ -14,6 +13,6 @@ const logger = store => next => action => {
     return result;
 };
 
-module.exports = (logging = false) => (logging) ?
-    applyMiddleware(logger)(createStore)(combineReducers({colors, sort}), initialState) :
-    createStore(combineReducers({colors, sort}), initialState);
+module.exports = (logging = false, initialState=require('./initialState')) => (logging) ?
+    applyMiddleware(thunk,logger)(createStore)(combineReducers({colors, sort}), initialState) :
+    applyMiddleware(thunk)(createStore)(combineReducers({colors, sort}), initialState);

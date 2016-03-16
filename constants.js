@@ -10,7 +10,7 @@ const constants = {
     // States
 
     SORTED_BY_DATE: "SORTED_BY_DATE",
-    SORTED_BY_COLOR: "SORTED_BY_COLOR",
+    SORTED_BY_TITLE: "SORTED_BY_TITLE",
     SORTED_BY_RATING: "SORTED_BY_RATING"
 
 };

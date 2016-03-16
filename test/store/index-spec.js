@@ -2,11 +2,11 @@ import C from '../../constants'
 import rewire from 'rewire'
 import { spy, assert } from 'sinon'
 
-let setupStore = rewire('../../store');
+let storeFactory = rewire('../../store');
 
-describe("Store", () => {
+describe("Store Factory", () => {
 
-    let store, console, initialState;
+    let store, console;
 
     before(() => {
         console = {
@@ -14,19 +14,7 @@ describe("Store", () => {
             log: spy(),
             groupEnd: spy()
         };
-        initialState = {
-            colors: [
-                {
-                    id: 0,
-                    title: "Rad Red",
-                    color: "#FF0000",
-                    rating: 3,
-                    timestamp: "Sat Mar 12 2016 16:12:09 GMT-0800 (PST)"
-                }
-            ]
-        };
-        setupStore.__set__("console", console);
-        setupStore.__set__("initialState", initialState);
+        storeFactory.__set__("console", console);
     });
 
     afterEach(() => {
@@ -39,7 +27,17 @@ describe("Store", () => {
     describe("Logging", () => {
 
         beforeEach(() => {
-            store = setupStore(true);
+            store = storeFactory(true, {
+                colors: [
+                    {
+                        id: 0,
+                        title: "Rad Red",
+                        color: "#FF0000",
+                        rating: 3,
+                        timestamp: "Sat Mar 12 2016 16:12:09 GMT-0800 (PST)"
+                    }
+                ]
+            });
             store.dispatch({type: C.REMOVE_COLOR, id: 0});
         });
 
@@ -52,7 +50,7 @@ describe("Store", () => {
     describe("Does not log", () => {
 
         beforeEach(() => {
-            store = setupStore();
+            store = storeFactory();
             store.dispatch({type: C.REMOVE_COLOR, id: 0});
         });
 
