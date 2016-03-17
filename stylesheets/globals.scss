@@ -1,0 +1,15 @@
+$light: rgba(255, 255, 255, 1);
+$light-grey: rgba(229, 229, 229, 1);
+$dark-grey: rgba(100, 100, 100, 1);
+
+$font-heading: Verdana, sans-serif;
+
+@mixin fade-bg($from, $to) {
+  background: $from;
+  background: linear-gradient(to bottom, $from 0%, $to 100%);
+}
+
+@mixin clear {
+  margin: 0;
+  padding: 0;
+}

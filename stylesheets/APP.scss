@@ -1,0 +1,19 @@
+@import "globals";
+
+html, body {
+  height: 100%;
+}
+
+h1 {
+  @include clear;
+}
+
+body {
+  @include clear;
+  @include fade-bg($light, $light-grey);
+
+  div.react-container {
+    position: relative;
+  }
+
+}

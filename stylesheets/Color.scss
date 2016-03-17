@@ -1,0 +1,19 @@
+@import "globals";
+
+section.color {
+  border: 1px solid $dark-grey;
+  margin: 1em;
+  padding: 0;
+  flex-basis: 100%;
+
+  h1 {
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    padding: .5em;
+  }
+
+  div {
+    height: 100px;
+  }
+
+}
