@@ -1,19 +1,19 @@
 import React from 'react'
 import { findDOMNode } from 'react-dom'
 import { renderIntoDocument } from 'react-addons-test-utils'
-import { APP } from '../../components'
+import { APP, Menu, ColorList, AddForm } from '../../components'
 import { expect } from 'chai'
 import { wrap } from 'react-stateless-wrapper'
 
 describe('APP Component', () => {
 
-    let h1;
+    let root;
 
     before(() => {
         let SUT = wrap(APP);
-        h1 = findDOMNode(renderIntoDocument(<SUT />));
+        root = findDOMNode(renderIntoDocument(<SUT />));
     });
 
-    it('displays title', () => expect(h1.innerHTML).to.equal("Color Picker APP"));
+    it('renders 3 children', () => expect(root.children.length).to.equal(3));
 
 });

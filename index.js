@@ -1,9 +1,13 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import storeFactory from './store'
 import { render } from 'react-dom'
 import { APP } from './components'
-import setupStore from './store'
 
 window.React = React;
-window.store = setupStore(true);
 
-render(<APP />, document.getElementById('react-container'));
+render(
+    <Provider store={storeFactory(true)}>
+        <APP />
+    </Provider>,
+    document.getElementById('react-container'));
