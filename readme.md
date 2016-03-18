@@ -18,14 +18,18 @@ npm Commands
 Remaining Tasks
 ------------
 
-1. Action Creators and Tests
-2. ~~Sorting Functions and Tests~~
-3. UI components with tests
-    * AddForm
-    * Menu
-    * Rating
-    * color
-4. Containers
-    * Provider
-    * APP
-5. Connect Redux to UI components
+1. Menu Component
+2. Style all nice nice
+3. Complete Readme.md
+4. Tags, version, plus publish repo
+5. Incorporate issues
+    * Component Testing
+    * Webstorage middleware
+    * Express REST Stuff
+    * Isomorpic
+    * Animated
+    * Time Travel
+    * Hot Swapping
+    * Flux Branch
+    * React State Branch
+    * Relay Branch

@@ -1,7 +1,8 @@
 import React from 'react'
-import { ColorList } from './containers'
+import { ColorList, AddColorForm } from './containers'
 
 const APP = () => <div>
+    <AddColorForm />
     <ColorList />
 </div>;
 
