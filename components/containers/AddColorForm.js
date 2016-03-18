@@ -24,7 +24,7 @@ class AddColorForm extends Component {
 
                 <div>
                     <input ref="color" type="color" required/>
-                    <button>Add Color</button>
+                    <button>ADD</button>
                 </div>
 
             </form>
