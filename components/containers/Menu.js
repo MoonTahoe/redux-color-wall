@@ -10,23 +10,23 @@ const Menu = ({ sort=C.SORTED_BY_DATE, onSelect=()=>null }) => {
             <a href="#"
                className={(sort === C.SORTED_BY_DATE) ? "selected" : null}
                onClick={e => {
-                e.preventDefault();
-                onSelect(C.SORTED_BY_DATE)
-           }}>date</a>
+                   e.preventDefault();
+                   onSelect(C.SORTED_BY_DATE)
+               }}>date</a>
 
             <a href="#"
                className={(sort === C.SORTED_BY_TITLE) ? "selected" : null}
                onClick={e => {
-                e.preventDefault();
-                onSelect(C.SORTED_BY_TITLE)
-           }}>title</a>
+                   e.preventDefault();
+                   onSelect(C.SORTED_BY_TITLE)
+               }}>title</a>
 
             <a href="#"
                className={(sort === C.SORTED_BY_RATING) ? "selected" : null}
                onClick={e => {
-                e.preventDefault();
-                onSelect(C.SORTED_BY_RATING)
-           }}>rating</a>
+                   e.preventDefault();
+                   onSelect(C.SORTED_BY_RATING)
+               }}>rating</a>
 
         </nav>
     )

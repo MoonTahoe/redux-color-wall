@@ -12,12 +12,12 @@ describe("Action Creators - sorting", () => {
     });
 
     it("can dispatch sort colors", () => {
-        store.dispatch(sortColors("rating"));
+        store.dispatch(sortColors(C.SORTED_BY_RATING));
         expect(store.getState().sort).to.equal(C.SORTED_BY_RATING);
     });
 
     it("can sort by title", () => {
-        store.dispatch(sortColors("title"));
+        store.dispatch(sortColors(C.SORTED_BY_TITLE));
         expect(store.getState().sort).to.equal(C.SORTED_BY_TITLE);
     });
 

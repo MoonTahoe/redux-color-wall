@@ -4,7 +4,7 @@ import { colors, sort } from './reducers'
 
 const logger = store => next => action => {
     let result;
-    console.group("dispatching", action.type);
+    console.groupCollapsed("dispatching", action.type);
     console.log('prev state', store.getState());
     console.log('action', action);
     result = next(action);
@@ -13,6 +13,6 @@ const logger = store => next => action => {
     return result;
 };
 
-module.exports = (logging = false, initialState=require('./initialState')) => (logging) ?
-    applyMiddleware(thunk,logger)(createStore)(combineReducers({colors, sort}), initialState) :
+module.exports = (logging = false, initialState = require('./initialState')) => (logging) ?
+    applyMiddleware(thunk, logger)(createStore)(combineReducers({colors, sort}), initialState) :
     applyMiddleware(thunk)(createStore)(combineReducers({colors, sort}), initialState);

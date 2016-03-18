@@ -10,7 +10,7 @@ describe("Store Factory", () => {
 
     before(() => {
         console = {
-            group: spy(),
+            groupCollapsed: spy(),
             log: spy(),
             groupEnd: spy()
         };
@@ -20,7 +20,7 @@ describe("Store Factory", () => {
     afterEach(() => {
         store = null;
         console.log.reset();
-        console.group.reset();
+        console.groupCollapsed.reset();
         console.groupEnd.reset();
     });
 
@@ -41,7 +41,7 @@ describe("Store Factory", () => {
             store.dispatch({type: C.REMOVE_COLOR, id: 0});
         });
 
-        it("starts a console group", () => assert.calledOnce(console.group));
+        it("starts a console group", () => assert.calledOnce(console.groupCollapsed));
         it("logs three console items", () => assert.calledThrice(console.log));
         it("ends the console group", () => assert.calledOnce(console.groupEnd));
 
@@ -54,7 +54,7 @@ describe("Store Factory", () => {
             store.dispatch({type: C.REMOVE_COLOR, id: 0});
         });
 
-        it("starts a console group", () => assert.callCount(console.group, 0));
+        it("starts a console group", () => assert.callCount(console.groupCollapsed, 0));
         it("logs three console items", () => assert.callCount(console.log, 0));
         it("ends the console group", () => assert.callCount(console.groupEnd, 0));
 

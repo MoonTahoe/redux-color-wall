@@ -27,3 +27,4 @@ globals:
     after: true
     beforeEach: true
     afterEach: true
+    __dirname: true
