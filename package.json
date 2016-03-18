@@ -1,6 +1,6 @@
 {
   "name": "redux-color-wall",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "An app that allows users to add and rate colors.",
   "main": "index.js",
   "scripts": {
