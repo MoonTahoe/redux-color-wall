@@ -8,6 +8,7 @@ import '!style!css!sass!postcss-loader!./stylesheets/Color.scss'
 import '!style!css!sass!postcss-loader!./stylesheets/ColorList.scss'
 import '!style!css!sass!postcss-loader!./stylesheets/Star.scss'
 import '!style!css!sass!postcss-loader!./stylesheets/AddColorForm.scss'
+import '!style!css!sass!postcss-loader!./stylesheets/Menu.scss'
 
 window.React = React;
 

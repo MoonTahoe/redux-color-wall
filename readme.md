@@ -18,11 +18,12 @@ npm Commands
 Remaining Tasks
 ------------
 
-1. Menu Component
-2. Style all nice nice
-3. Complete Readme.md
-4. Tags, version, plus publish repo
-5. Incorporate issues
+1. ~~Menu Component~~
+2. timestamp ago component added to color
+3. Style all nice nice
+4. Complete Readme.md
+5. Tags, version, plus publish repo
+6. Incorporate issues
     * Component Testing
     * Webstorage middleware
     * Express REST Stuff
