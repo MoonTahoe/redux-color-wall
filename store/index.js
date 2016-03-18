@@ -13,6 +13,12 @@ const logger = store => next => action => {
     return result;
 };
 
+const saver = store => next => action => {
+    let result = next(action);
+    localStorage["redux-store"] = JSON.stringify(store.getState());
+    return result;
+};
+
 module.exports = (logging = false, initialState = require('./initialState')) => (logging) ?
-    applyMiddleware(thunk, logger)(createStore)(combineReducers({colors, sort}), initialState) :
-    applyMiddleware(thunk)(createStore)(combineReducers({colors, sort}), initialState);
+    applyMiddleware(thunk, logger, saver)(createStore)(combineReducers({colors, sort}),  (localStorage["redux-store"]) ? JSON.parse(localStorage["redux-store"]) : initialState) :
+    applyMiddleware(thunk)(createStore)(combineReducers({colors, sort}), (localStorage["redux-store"]) ? JSON.parse(localStorage["redux-store"]) : initialState);

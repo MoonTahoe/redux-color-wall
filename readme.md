@@ -19,13 +19,16 @@ Remaining Tasks
 ------------
 
 1. ~~Menu Component~~
-2. timestamp ago component added to color
+2. ~~timestamp ago component added to color~~
 3. Style all nice nice
 4. Complete Readme.md
 5. Tags, version, plus publish repo
 6. Incorporate issues
     * Component Testing
-    * Webstorage middleware
+        * Breakout and Test Logger
+        * Breakout and Test Saver
+        * Test Store Factory (Generate Plain, w/saver, w/logger)
+    * ~~Webstorage middleware~~
     * Express REST Stuff
     * Isomorpic
     * Animated
