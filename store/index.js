@@ -19,6 +19,14 @@ const saver = store => next => action => {
     return result;
 };
 
+//
+//  TODO: Make Saving Optional as well
+//
+
+//
+//  TODO: Make this function make more sense
+//
+
 module.exports = (logging = false, initialState = require('./initialState')) => (logging) ?
     applyMiddleware(thunk, logger, saver)(createStore)(combineReducers({colors, sort}),  (localStorage["redux-store"]) ? JSON.parse(localStorage["redux-store"]) : initialState) :
     applyMiddleware(thunk)(createStore)(combineReducers({colors, sort}), (localStorage["redux-store"]) ? JSON.parse(localStorage["redux-store"]) : initialState);

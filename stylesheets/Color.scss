@@ -3,8 +3,8 @@
 section.color {
   @include shadow;
   border: 2px solid $light-grey;
-  border-bottom-color:  darken($light-grey, 40%);
-  border-right-color:  darken($light-grey, 40%);
+  border-bottom-color: darken($light-grey, 40%);
+  border-right-color: darken($light-grey, 40%);
   margin: 1em;
   padding: 0;
   flex-basis: 100%;
@@ -27,7 +27,6 @@ section.color {
   @media screen and (min-width: $break-xl) {
     flex-basis: calc(16.66666% - 2em - 4px);
   }
-
 
   h1 {
     font-family: Verdana, sans-serif;
@@ -57,7 +56,7 @@ section.color {
 
   }
 
-  >div:last-child {
+  > div:last-child {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -67,6 +66,14 @@ section.color {
   div.color {
     height: 100px;
     flex-basis: 100%;
+  }
+
+  div.time-ago {
+    position: absolute;
+    bottom: .5em;
+    right: .5em;
+    font-family: monospace;
+    color: darken($light-grey, 40%);
   }
 
 }
