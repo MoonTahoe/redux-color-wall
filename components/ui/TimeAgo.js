@@ -1,4 +1,3 @@
-import React from 'react'
 import { ago } from '../../lib/time-helpers'
 
 const TimeAgo = ({timestamp}) => {

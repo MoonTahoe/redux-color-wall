@@ -1,4 +1,3 @@
-import React from 'react'
 import { ColorList, AddColorForm, Menu } from './containers'
 
 const APP = () => <div>

@@ -30,14 +30,17 @@ const saver = store => next => action => {
 module.exports = (logging = false, initialState = require('./initialState')) => {
 
     if (logging) {
-        return applyMiddleware(thunk, logger, saver)(createStore)
-        (combineReducers({colors, sort}),
+        return applyMiddleware(thunk, logger, saver)(createStore)(
+            combineReducers({colors, sort}),
             (localStorage["redux-store"]) ? JSON.parse(localStorage["redux-store"]) : initialState,
-            window.devToolsExtension ? window.devToolsExtension() : f => f);
+            window.devToolsExtension ? window.devToolsExtension() : f => f
+        );
     } else {
-        return applyMiddleware(thunk)(createStore)(combineReducers({colors, sort}),
+        return applyMiddleware(thunk)(createStore)(
+            combineReducers({colors, sort}),
             (localStorage["redux-store"]) ? JSON.parse(localStorage["redux-store"]) : initialState,
-            window.devToolsExtension ? window.devToolsExtension() : f => f);
+            window.devToolsExtension ? window.devToolsExtension() : f => f
+        );
     }
 
 };

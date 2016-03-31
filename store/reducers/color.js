@@ -11,7 +11,7 @@ const color = (state = {}, action = {type: null}) => {
                 rating: 0
             };
         case C.RATE_COLOR:
-            return (state.id !== action.id) ? state : {
+            return {
                 ...state,
                 rating: action.rating
             };
