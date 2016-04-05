@@ -4,7 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
+var colorData = require('./data');
 var app = express();
 
 // uncomment after placing your favicon in /public
@@ -14,6 +16,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
+
+// Data routes for colors
+app.get("/colors", function(req, res) {
+  res.json(colorData);
+});
+
+app.post("/colors", function(req, res) {
+  res.json(colorData);
+});
+
+app.put("/color/:id", function(req, res) {
+  res.json(colorData);
+});
+
+app.delete("/color/:id", function(req, res) {
+  res.json(colorData);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
