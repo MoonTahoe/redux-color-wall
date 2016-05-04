@@ -19,28 +19,18 @@ const saver = store => next => action => {
     return result;
 };
 
-//
-//  TODO: Make Saving Optional as well
-//
-
-//
-//  TODO: Make Dev tools Extension an option
-//
-
 module.exports = (logging = false, initialState = require('./initialState')) => {
-
+    let reduxDevTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
     if (logging) {
         return applyMiddleware(thunk, logger, saver)(createStore)(
             combineReducers({colors, sort}),
             (localStorage["redux-store"]) ? JSON.parse(localStorage["redux-store"]) : initialState,
-            window.devToolsExtension ? window.devToolsExtension() : f => f
+            reduxDevTools
         );
     } else {
         return applyMiddleware(thunk)(createStore)(
             combineReducers({colors, sort}),
-            (localStorage["redux-store"]) ? JSON.parse(localStorage["redux-store"]) : initialState,
-            window.devToolsExtension ? window.devToolsExtension() : f => f
+            (localStorage["redux-store"]) ? JSON.parse(localStorage["redux-store"]) : initialState
         );
     }
-
 };

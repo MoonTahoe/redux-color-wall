@@ -1,11 +1,22 @@
 import C from '../../constants'
-import storeFactory from '../../store'
 import { addColor, removeColor, rateColor } from '../../actions'
 import { expect } from 'chai'
+import rewire from 'rewire'
+import { spy } from 'sinon'
 
 describe("Action Creators - colors", () => {
 
-    let store, testColors;
+    let store, testColors, _console, storeFactory;
+
+    before(() => {
+        storeFactory = rewire('../../store');
+        _console = {
+            log: spy(),
+            groupCollapsed: spy(),
+            groupEnd: spy()
+        };
+        storeFactory.__set__("console", _console);
+    });
 
     describe("Adding Colors", () => {
 
@@ -84,6 +95,16 @@ describe("Action Creators - colors", () => {
         });
 
         it("should rate the color", () => expect(store.getState().colors[0].rating).to.equal(5));
+
+    });
+
+    describe("cover without devtools extension", () => {
+
+        it("should cover all conditionals", () => {
+            global.window.devToolsExtension = null;
+            store = storeFactory(true);
+        });
+
 
     });
 

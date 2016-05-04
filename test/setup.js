@@ -7,4 +7,5 @@ global.localStorage = {
     "redux-store": false
 };
 global.React = React;
+global.window.devToolsExtension = f => f;
 global.navigator = {userAgent: 'node.js'};
