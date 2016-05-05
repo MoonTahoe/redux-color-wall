@@ -1,7 +1,7 @@
 import { propTypes } from 'react'
 import Star from './Star'
 
-const StarRating = ({starsSelected=0, totalStars=5, onRate=()=>null}) => (
+const StarRating = ({starsSelected=0, totalStars=5, onRate=f=>f}) => (
     <div className="star-rating">
         {Array.apply(null, Array(totalStars)).map((n, i) => <Star key={i}
                                                                   selected={i<starsSelected}
