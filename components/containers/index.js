@@ -1,5 +1,5 @@
 import AddColor from './AddColor'
-import ColorList from './ColorList'
+import Colors from './Colors'
 import Menu from './Menu'
 
-module.exports = {AddColor, ColorList, Menu};
+module.exports = {AddColor, Colors, Menu};

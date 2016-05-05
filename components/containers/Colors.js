@@ -1,19 +1,8 @@
 import C from '../../constants'
-import { Color } from '../ui'
+import { ColorList } from '../ui'
 import { connect } from 'react-redux'
 import { removeColor, rateColor } from '../../actions/colors'
 import { sortBy } from '../../lib/array-helpers'
-
-const ColorList = ({ colors=[], onRate=()=>null, onRemove=()=>null }) => (
-    <div className="color-list">
-        {(colors.length === 0) ?
-            <p>No Colors Listed. (Add a Color)</p> :
-            colors.map((color, i) => <Color key={i}
-                                            onRate={(rating) => onRate(color.id, rating)}
-                                            onRemove={() => onRemove(color.id)}
-                {...color} />)}
-    </div>
-);
 
 const mapStateToProps = state => {
     let sortingColors = state.colors.map(c => c);

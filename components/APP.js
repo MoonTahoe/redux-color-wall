@@ -1,9 +1,9 @@
-import { ColorList, AddColor, Menu } from './containers'
+import { Colors, AddColor, Menu } from './containers'
 
 const APP = () => <div>
     <Menu />
     <AddColor />
-    <ColorList />
+    <Colors />
 </div>;
 
 module.exports = APP;
