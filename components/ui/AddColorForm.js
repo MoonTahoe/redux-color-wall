@@ -1,13 +1,11 @@
 import { Component } from 'react'
-import { connect } from 'react-redux'
-import { addColor } from '../../actions/colors'
 
 class AddColorForm extends Component {
 
     submit() {
-        const { dispatch } = this.props;
+        const { onAddColor } = this.props;
         const { title, color } = this.refs;
-        dispatch(addColor(color.value, title.value));
+        onAddColor(color.value, title.value);
         title.value = '';
         color.value = '#000000';
     }
@@ -19,11 +17,11 @@ class AddColorForm extends Component {
                   onSubmit={this.submit.bind(this)}>
 
                 <div>
-                    <input ref="title" type="text" placeholder="color title..." required/>
+                    <input ref="title" type="text" placeholder="color title..." defaultValue="" required="required"/>
                 </div>
 
                 <div>
-                    <input ref="color" type="color" required/>
+                    <input ref="color" type="color" required="required" defaultValue="#000000;"/>
                     <button>ADD</button>
                 </div>
 
@@ -33,4 +31,4 @@ class AddColorForm extends Component {
 
 }
 
-module.exports = connect()(AddColorForm);
+module.exports = AddColorForm;

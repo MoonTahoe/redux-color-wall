@@ -1,4 +1,4 @@
-import { propTypes } from 'react'
+import { PropTypes } from 'react'
 import Star from './Star'
 
 const StarRating = ({starsSelected=0, totalStars=5, onRate=f=>f}) => (
@@ -9,5 +9,11 @@ const StarRating = ({starsSelected=0, totalStars=5, onRate=f=>f}) => (
         <p>{starsSelected} of {totalStars} stars</p>
     </div>
 );
+
+StarRating.propTypes = {
+    starsSelected: PropTypes.number,
+    totalStars: PropTypes.number,
+    onRate: PropTypes.func
+};
 
 module.exports = StarRating;

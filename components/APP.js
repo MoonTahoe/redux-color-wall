@@ -1,8 +1,8 @@
-import { ColorList, AddColorForm, Menu } from './containers'
+import { ColorList, AddColor, Menu } from './containers'
 
 const APP = () => <div>
     <Menu />
-    <AddColorForm />
+    <AddColor />
     <ColorList />
 </div>;
 
