@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { PropTypes, Component } from 'react'
 
 class AddColorForm extends Component {
 
@@ -30,5 +30,9 @@ class AddColorForm extends Component {
     }
 
 }
+
+AddColorForm.propTypes = {
+    onAddColor: PropTypes.func
+};
 
 module.exports = AddColorForm;

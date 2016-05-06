@@ -1,4 +1,5 @@
 import C from '../../constants'
+import { PropTypes } from 'react'
 
 const SortMenu = ({ sort=C.SORTED_BY_DATE, onSelect=()=>null }) => {
     return (
@@ -30,5 +31,9 @@ const SortMenu = ({ sort=C.SORTED_BY_DATE, onSelect=()=>null }) => {
     )
 };
 
+SortMenu.propTypes = {
+    sort: PropTypes.string,
+    onSelect: PropTypes.func
+};
 
 module.exports = SortMenu;
