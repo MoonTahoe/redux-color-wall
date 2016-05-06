@@ -1,23 +1,37 @@
-//
-//  TODO: Test Components
-//
+import { expect } from 'chai'
+import { shallow } from 'enzyme'
+import APP from '../../components/APP'
+import { spy } from 'sinon'
 
-//import React from 'react'
-//import { findDOMNode } from 'react-dom'
-//import { renderIntoDocument } from 'react-addons-test-utils'
-//import { expect } from 'chai'
-//import { wrap } from 'react-stateless-wrapper'
-//import APP from '../../components/APP'
-//
-//describe('APP Component', () => {
-//
-//    let root;
-//
-//    before(() => {
-//        let SUT = wrap(APP);
-//        root = findDOMNode(renderIntoDocument(<SUT />));
-//    });
-//
-//    it('renders a div');
-//
-//});
+describe("<APP /> UI Component", () => {
+
+    let wrapper,
+        MockAddColor = () => (
+            <div></div>
+        ),
+        MockColors = () => (
+            <div></div>
+        ),
+        MockMenu = () => (
+            <div></div>
+        );
+
+    before(() => {
+        APP.__Rewire__('AddColor', MockAddColor);
+        APP.__Rewire__('Colors', MockColors);
+        APP.__Rewire__('Menu', MockMenu);
+    });
+
+    describe("Rendering Containers", () => {
+
+        before(() => wrapper = shallow(<APP />));
+
+        it("renders <Menu />", () => expect(wrapper.find(MockMenu)).to.have.length(1));
+
+        it("renders <AddColor />", () => expect(wrapper.find(MockAddColor)).to.have.length(1));
+
+        it("renders <Colors />", () => expect(wrapper.find(MockColors)).to.have.length(1));
+
+    });
+
+});

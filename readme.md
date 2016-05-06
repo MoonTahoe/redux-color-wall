@@ -10,7 +10,9 @@ npm Commands
 
 ` $ npm start ` -> Builds, runs, and opens app in a browser
 
-` $ npm test ` -> Runs the tests
+` $ npm run shallow-test ` -> Runs unit tests without coverage
+
+` $ npm test ` -> Runs the tests with code coverage
 
 ` $ npm coverage ` -> Opens coverage report in a browser
 

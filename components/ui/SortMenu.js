@@ -1,7 +1,7 @@
 import C from '../../constants'
 import { PropTypes } from 'react'
 
-const SortMenu = ({ sort=C.SORTED_BY_DATE, onSelect=()=>null }) => {
+const SortMenu = ({ sort=C.SORTED_BY_DATE, onSelect=f=>f }) => {
     return (
         <nav>
             <h1>Sort Colors</h1>
