@@ -21,7 +21,7 @@ class AddColorForm extends Component {
                 </div>
 
                 <div>
-                    <input ref="color" type="color" required="required" defaultValue="#000000;"/>
+                    <input ref="color" type="color" required="required" defaultValue="#000000"/>
                     <button>ADD</button>
                 </div>
 

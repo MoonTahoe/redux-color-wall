@@ -11,6 +11,25 @@ section.color {
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  order: 2;
+
+  &.collapsed {
+
+    order: 1;
+    height: 3em;
+    width: 3em;
+    flex-basis: 3em;
+
+    div.color {
+      height: 3em;
+    }
+
+    h1, div:last-child,
+    .time-ago, .trash {
+      display: none;
+    }
+
+  }
 
   @media screen and (min-width: $break-sm) {
     flex-basis: calc(50% - 2em - 4px);

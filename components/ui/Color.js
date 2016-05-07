@@ -1,10 +1,12 @@
 import { PropTypes } from 'react'
+import { Expandable } from '../hoc'
 import StarRating from './StarRating'
 import TimeAgo from './TimeAgo'
 import FaTrash from 'react-icons/lib/fa/trash-o'
 
-const Color = ({ title, color, rating=0, timestamp="", onRemove=f=>f, onRate=f=>f}) => (
-    <section className="color">
+const Color = ({ collapsed, expandCollapse, title, color, rating=0, timestamp="", onRemove=f=>f, onRate=f=>f}) => (
+    <section className={(collapsed) ? "color collapsed" : "color expanded"}
+             onDoubleClick={expandCollapse}>
         <h1>{title}</h1>
         <div className="trash">
             <button onClick={onRemove}>
@@ -28,4 +30,4 @@ Color.propTypes = {
     onRate: PropTypes.func
 };
 
-module.exports = Color;
+module.exports = Expandable(Color);
