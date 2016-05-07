@@ -7,6 +7,7 @@
     "lint": "./node_modules/.bin/eslint .",
     "prestart": "webpack",
     "start": "open http://localhost:3000 & ./node_modules/.bin/httpster -d ./dist/ -p 3000",
+    "dev": "./node_modules/.bin/webpack-dev-server",
     "test": "./node_modules/.bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- --require ./test/setup.js --require node_modules/ignore-styles --recursive",
     "shallow-test": "mocha --compilers js:babel-core/register --recursive",
     "posttest": "npm run lint",
@@ -52,7 +53,8 @@
     "sass-loader": "^3.2.0",
     "sinon": "^1.17.3",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.12"
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "httpster": "^1.0.3",

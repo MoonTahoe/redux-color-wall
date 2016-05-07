@@ -17,3 +17,5 @@ npm Commands
 ` $ npm coverage ` -> Opens coverage report in a browser
 
 ` $ npm run lint ` -> Runs eslint on source javascript files
+
+` $ npm run dev ` -> Runs webpack dev server on port 3333
