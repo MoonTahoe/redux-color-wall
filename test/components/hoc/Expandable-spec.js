@@ -5,21 +5,17 @@ import { spy } from 'sinon'
 
 describe("Expandable Higher Order Component", () => {
 
-    let wrapper, ComposedComponent, Component = () => (
-        <div></div>
-    );
+    let props, wrapper, ComposedComponent, MockComponent = ({collapsed, expandCollapse}) => (
+        <div onClick={expandCollapse}>{(collapsed) ? 'collapsed' : 'expanded'}</div>
 
-    before(() => {
-    });
+    );
 
     describe("Rendering UI", () => {
 
-        let props;
-
         before(() => {
-            ComposedComponent = Expandable(Component);
+            ComposedComponent = Expandable(MockComponent);
             wrapper = mount(<ComposedComponent foo="foo" gnar="gnar" />);
-            props = wrapper.find(ComposedComponent).props();
+            props = wrapper.find(MockComponent).props();
         });
 
         it("Starts off Collapsed", () => expect(props.collapsed).to.be.ok);
@@ -30,19 +26,27 @@ describe("Expandable Higher Order Component", () => {
 
         it("passes additional gnar prop to composed component", () => expect(props.gnar).to.equal("gnar"));
 
+
     });
 
     describe("Expand Collapse Functionality", () => {
 
-        before(() => {
+        let instance;
 
+        before(() => {
+            ComposedComponent = Expandable(MockComponent);
+            wrapper = mount(<ComposedComponent collapsed={false} />);
+            instance = wrapper.instance();
         });
 
-        it("starts off expanded");
+        it("renders the MockComponent as the root element", () => expect(wrapper.first().is(MockComponent)) );
 
-        it("toggles collapse");
+        it("starts off expanded", () => expect(instance.props.collapsed).not.to.be.ok);
 
-        it("toggles expanded");
+        it("toggles the collapsed state", () => {
+            instance.expandCollapse();
+            expect(instance.state.collapsed).to.equal(false);
+        });
 
     });
 

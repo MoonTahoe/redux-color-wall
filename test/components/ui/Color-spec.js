@@ -74,4 +74,17 @@ describe("<Color /> UI Component", () => {
 
     });
 
+    describe("expanding and collapsing", () => {
+
+        let instance;
+
+        before(() => {
+            wrapper = mount(<Color collapsed={false} />);
+            instance = wrapper.instance();
+        });
+
+        it("starts off expanded", () => expect(instance.props.collapsed).to.equal(false));
+
+    });
+
 });
