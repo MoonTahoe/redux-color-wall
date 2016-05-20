@@ -1,3 +1,4 @@
+import React from 'react'
 import StarRating from './StarRating'
 import TimeAgo from './TimeAgo'
 import FaTrash from 'react-icons/lib/fa/trash-o'

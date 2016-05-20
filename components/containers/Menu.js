@@ -1,3 +1,4 @@
+import React from 'react'
 import C from '../../constants'
 import { connect } from 'react-redux'
 import { sortColors } from '../../actions/sort'

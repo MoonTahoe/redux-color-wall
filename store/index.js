@@ -19,14 +19,16 @@ const saver = store => next => action => {
     return result;
 };
 
-module.exports = (logging = false) => {
+module.exports = (logging = false, initialState={}) => {
     if (logging) {
         return applyMiddleware(thunk, logger, saver)(createStore)(
-            combineReducers({colors, sort})
+            combineReducers({colors, sort}),
+            initialState
         );
     } else {
         return applyMiddleware(thunk)(createStore)(
-            combineReducers({colors, sort})
+            combineReducers({colors, sort}),
+            initialState
         );
     }
 };

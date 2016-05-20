@@ -1,13 +1,21 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var colorsApi = require('./routes/colors-api');
-var cors = require('cors');
-var app = express();
+import React from 'react'
+import express from 'express'
+import path from 'path'
+import favicon from 'serve-favicon'
+import logger from 'morgan'
+import cookieParser from 'cookie-parser'
+import bodyParser from 'body-parser'
+import fs from 'fs'
+import colorsApi from './routes/colors-api'
+import cors from 'cors'
+import colors from '../data'
+import { renderToString } from 'react-dom/server'
+import { Provider } from 'react-redux'
+import App from '../components/App'
+import storeFactory from '../store'
+
+const initialState = {colors};
+const app = express();
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -21,8 +29,38 @@ app.use(cors());
 // Adding the API
 app.use('/api', colorsApi);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use('/', (req, res) => {
+
+  const store = storeFactory(true, initialState);
+  const html = renderToString(
+      <Provider store={store}>
+        <App />
+      </Provider>
+  );
+
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />
+      <meta charset="utf-8">
+      <title>Redux Color Wall</title>
+    </head>
+    <body>
+      <div id="react-container">${html}</div>
+      <script>
+        window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
+      </script>
+      <script src="/assets/bundle.min.js"></script>
+    </body>
+    </html>
+  `);
+
+});
+
+
+
+app.use((req, res, next) => {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -33,7 +71,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use((err, req, res) => {
     res.status(err.status || 500);
     res.json('error', {
       message: err.message,
@@ -44,7 +82,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use((err, req, res) => {
   res.status(err.status || 500);
   res.json('error', {
     message: err.message,

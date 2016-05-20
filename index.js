@@ -12,8 +12,10 @@ import '!style!css!sass!postcss-loader!./stylesheets/Menu.scss'
 
 window.React = React;
 
+const initialState = window.__INITIAL_STATE__;
+
 render(
-    <Provider store={storeFactory(true)}>
+    <Provider store={storeFactory(true, initialState)}>
         <APP />
     </Provider>,
     document.getElementById('react-container'));

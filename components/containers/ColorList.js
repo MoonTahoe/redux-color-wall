@@ -1,3 +1,4 @@
+import React from 'react'
 import C from '../../constants'
 import { Color } from '../ui'
 import { connect } from 'react-redux'

@@ -1,30 +1,16 @@
-var express = require('express');
-var colorData = require('../../data');
-var router = express.Router();
+import { Router } from 'express'
+import colorData from '../../data'
 
-router.get("/", function(req, res) {
-    res.json(['/colors', '/color/:id']);
-});
+const router = Router();
 
-// Data routes for colors
-router.get("/colors", function(req, res) {
-    res.json(colorData);
-});
+// Colors
+router.get("/",(req, { json }) => json(['/colors', '/color/:id']));
+router.get("/colors",(req, { json }) => json(colorData));
+router.post("/colors",(req, { json }) => json(colorData));
 
-router.post("/colors", function(req, res) {
-    res.json(colorData);
-});
-
-router.get("/color/:id", function(req, res) {
-    res.json(colorData.filter(c=>c.id==req.params.id));
-});
-
-router.put("/color/:id", function(req, res) {
-    res.json(colorData);
-});
-
-router.delete("/color/:id", function(req, res) {
-    res.json(colorData);
-});
+// COlor
+router.get("/color/:id",({ params }, { json }) => json(colorData.filter(c=>c.id==params.id)));
+router.put("/color/:id",(req, { json }) => json(colorData));
+router.delete("/color/:id",(req, { json }) => json(colorData));
 
 module.exports = router;
